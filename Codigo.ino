@@ -49,5 +49,5 @@ void setup()
 
 void loop()
 {
-
+    //Todo lo colocado aca se repetira constantemente
 }
