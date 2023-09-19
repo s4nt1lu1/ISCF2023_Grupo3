@@ -1,0 +1,56 @@
+﻿<pre>
+<font color="#5e6d03">#define</font> <font color="#000000">trig</font> <font color="#000000">2</font> <font color="#434f54">&#47;&#47;Pin Trigger del Sensor</font>
+<font color="#5e6d03">#define</font> <font color="#000000">echo</font> <font color="#000000">3</font> <font color="#434f54">&#47;&#47;Pin Echo del Sensor</font>
+
+<font color="#5e6d03">#define</font> <font color="#000000">M11</font> <font color="#000000">5</font> <font color="#434f54">&#47;&#47;Pin 1 Motor 1</font>
+<font color="#5e6d03">#define</font> <font color="#000000">M12</font> <font color="#000000">6</font> <font color="#434f54">&#47;&#47;Pin 2 Motor 1</font>
+
+<font color="#5e6d03">#define</font> <font color="#000000">M21</font> <font color="#000000">10</font> <font color="#434f54">&#47;&#47;Pin 1 Motor 2</font>
+<font color="#5e6d03">#define</font> <font color="#000000">M22</font> <font color="#000000">11</font> <font color="#434f54">&#47;&#47;Pin 2 Motor 2</font>
+
+<font color="#5e6d03">#define</font> <font color="#000000">VelIn</font> <font color="#000000">A0</font> <font color="#434f54">&#47;&#47;Pin de potenciometro velocidad</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font>
+<font color="#000000">{</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">9600</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;Configuracion de velocidad del puerto Serie</font>
+
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">VelIn</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;Pin de entrada Potenciometro</font>
+
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">M11</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;Pin salida Motor 1</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">M12</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;Pin salida Motor 1</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">M21</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;Pin salida Motor 2</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">M22</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;Pin salida Motor 2</font>
+
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">M11</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;Inicializar en apagado</font>
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">M12</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;Inicializar en apagado</font>
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">M21</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;Inicializar en apagado</font>
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">M22</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;Inicializar en apagado</font>
+
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">trig</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">echo</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#00979c">float</font> <font color="#000000">Dist</font> <font color="#434f54">=</font> <font color="#000000">0</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#5e6d03">do</font>
+ &nbsp;<font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">trig</font><font color="#434f54">,</font> <font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font><font color="#434f54">&#47;&#47;Inicializamos el pin en 0 para evitar falsos positivos</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">100</font><font color="#000000">)</font><font color="#000000">;</font><font color="#434f54">&#47;&#47;Delay de 100ms para asegurar de que se reciba el siguiente pulso</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">trig</font><font color="#434f54">,</font> <font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font><font color="#434f54">&#47;&#47;Cambiamos el pin a HIGH para dar el pulso de disparo</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">delayMicroseconds</font><font color="#000000">(</font><font color="#000000">10</font><font color="#000000">)</font><font color="#000000">;</font><font color="#434f54">&#47;&#47;Enviamos un pulso de 10Ms</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">trig</font><font color="#434f54">,</font> <font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;&nbsp;&nbsp;<font color="#000000">Dist</font> <font color="#434f54">=</font> <font color="#d35400">pulseIn</font><font color="#000000">(</font><font color="#000000">echo</font><font color="#434f54">,</font> <font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font><font color="#434f54">&#47;&#47;Obtenemos el ancho del pulso del pin echo</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">Dist</font> <font color="#434f54">=</font> <font color="#000000">Dist</font> <font color="#434f54">&#47;</font> <font color="#000000">59</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;dividimos por 59 para convertir a Cm</font>
+ &nbsp;<font color="#000000">}</font>
+ &nbsp;<font color="#5e6d03">while</font> <font color="#000000">(</font><font color="#434f54">!</font><font color="#000000">(</font><font color="#000000">Dist</font> <font color="#434f54">&gt;</font> <font color="#000000">0</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;El programa se mantendra en este bucle hasta confirmar que los sensores estan funcionando</font>
+
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;Programa Iniciado&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+
+<font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font>
+<font color="#000000">{</font>
+
+<font color="#000000">}</font>
+
+</pre>
