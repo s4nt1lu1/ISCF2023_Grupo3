@@ -1,0 +1,101 @@
+<circuit version="1.0.0-SR0" rev="1320" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Subcircuit" CircId="Uno-234" mainComp="false" Show_id="true" Show_Val="false" Pos="744,324" rotation="0" hflip="1" vflip="1" label="Uno-234" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
+<mainCompProps itemtype="MCU" CircId="234_mega328-109" mainComp="true" Show_id="false" Show_Val="false" Pos="20,20" rotation="0" hflip="1" vflip="1" label="234_mega328-109" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="16 MHz" Auto_Load="false" Rst_enabled="true" Ext_Osc="true" Wdt_enabled="false" />
+</item>
+
+<item itemtype="SR04" CircId="SR04-236" mainComp="false" Show_id="false" Show_Val="false" Pos="636,252" rotation="0" hflip="1" vflip="1" label="SR04-236" idLabPos="-16,-48" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Voltage Source" CircId="Voltage Source-241" mainComp="false" ShowProp="MaxValue" Show_id="false" Show_Val="true" Pos="488,212" rotation="0" hflip="1" vflip="1" label="Voltage Source-241" idLabPos="-32,-48" labelrot="0" valLabPos="-8,30" valLabRot="0" Running="true" Value_Volt="0 V" MaxValue="5 V" />
+
+<item itemtype="Subcircuit" CircId="L298P-245" mainComp="false" Show_id="true" Show_Val="false" Pos="656,408" rotation="0" hflip="-1" vflip="1" label="L298P-245" idLabPos="49,-15" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="true" />
+
+<item itemtype="Ground" CircId="Ground-246" mainComp="false" Show_id="false" Show_Val="false" Pos="600,504" rotation="0" hflip="1" vflip="1" label="Ground-246" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-251" mainComp="false" Show_id="false" Show_Val="false" Pos="568,476" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-251" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="true" Voltage="5 V" />
+
+<item itemtype="DcMotor" CircId="DcMotor-264" mainComp="false" Show_id="true" Show_Val="false" Pos="460,380" rotation="90" hflip="1" vflip="1" label="DcMotor-264" idLabPos="-22,-48" labelrot="0" valLabPos="-14,36" valLabRot="0" RPM_Nominal="60 _RPM" Volt_Nominal="5 V" Resistance="100 Ω" />
+
+<item itemtype="DcMotor" CircId="DcMotor-265" mainComp="false" Show_id="true" Show_Val="false" Pos="460,480" rotation="90" hflip="1" vflip="1" label="DcMotor-265" idLabPos="-22,-48" labelrot="0" valLabPos="-14,36" valLabRot="0" RPM_Nominal="60 _RPM" Volt_Nominal="5 V" Resistance="100 Ω" />
+
+<item itemtype="Resistor" CircId="Resistor-395" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="968,424" rotation="90" hflip="1" vflip="1" label="Resistor-395" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="1000 Ω" />
+
+<item itemtype="Potentiometer" CircId="Potentiometer-396" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="968,356" rotation="90" hflip="1" vflip="1" label="Potentiometer-396" idLabPos="-16,-40" labelrot="0" valLabPos="15,-20" valLabRot="0" Resistance="5000 Ω" Value_Ohm="0 Ω" />
+
+<item itemtype="Voltimeter" CircId="Voltimeter-409" mainComp="false" Show_id="false" Show_Val="false" Pos="1052,308" rotation="0" hflip="1" vflip="1" label="Voltimeter-409" idLabPos="-24,-40" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Node" CircId="Node-249" mainComp="false" Pos="616,472" />
+
+<item itemtype="Node" CircId="Node-254" mainComp="false" Pos="664,464" />
+
+<item itemtype="Node" CircId="Node-257" mainComp="false" Pos="584,476" />
+
+<item itemtype="Node" CircId="Node-401" mainComp="false" Pos="968,372" />
+
+<item itemtype="Node" CircId="Node-405" mainComp="false" Pos="968,388" />
+
+<item itemtype="Node" CircId="Node-411" mainComp="false" Pos="928,388" />
+
+<item itemtype="Node" CircId="Node-414" mainComp="false" Pos="968,440" />
+
+<item itemtype="Connector" uid="connector-415" startpinid="SR04-236-trigpin" endpinid="Uno-234-2" pointList="636,300,636,356,752,356" />
+
+<item itemtype="Connector" uid="connector-416" startpinid="SR04-236-outpin" endpinid="Uno-234-3" pointList="644,300,644,364,752,364" />
+
+<item itemtype="Connector" uid="connector-417" startpinid="Voltage Source-241-outPin" endpinid="SR04-236-inpin" pointList="516,228,548,228" />
+
+<item itemtype="Connector" uid="connector-418" startpinid="L298P-245-SenA" endpinid="Node-249-0" pointList="616,464,616,472" />
+
+<item itemtype="Connector" uid="connector-419" startpinid="Ground-246-Gnd" endpinid="Node-249-1" pointList="600,488,616,488,616,472" />
+
+<item itemtype="Connector" uid="connector-420" startpinid="Node-249-2" endpinid="L298P-245-SenB" pointList="616,472,616,472" />
+
+<item itemtype="Connector" uid="connector-421" startpinid="L298P-245-Vs" endpinid="Node-257-0" pointList="616,456,584,456,584,476" />
+
+<item itemtype="Connector" uid="connector-422" startpinid="L298P-245-EnA" endpinid="Node-254-0" pointList="664,456,664,464" />
+
+<item itemtype="Connector" uid="connector-423" startpinid="Node-254-2" endpinid="L298P-245-EnB" pointList="664,464,664,464" />
+
+<item itemtype="Connector" uid="connector-424" startpinid="Node-254-1" endpinid="Node-257-1" pointList="664,464,664,524,584,524,584,476" />
+
+<item itemtype="Connector" uid="connector-425" startpinid="Node-257-2" endpinid="Fixed Voltage-251-outnod" pointList="584,476,584,476" />
+
+<item itemtype="Connector" uid="connector-426" startpinid="L298P-245-IN1" endpinid="Uno-234-5" pointList="664,416,664,380,752,380" />
+
+<item itemtype="Connector" uid="connector-427" startpinid="L298P-245-IN2" endpinid="Uno-234-6" pointList="664,424,676,424,676,388,752,388" />
+
+<item itemtype="Connector" uid="connector-428" startpinid="L298P-245-IN3" endpinid="Uno-234-10" pointList="664,432,728,432,728,428,752,428" />
+
+<item itemtype="Connector" uid="connector-429" startpinid="L298P-245-IN4" endpinid="Uno-234-11" pointList="664,440,732,440,732,436,752,436" />
+
+<item itemtype="Connector" uid="connector-430" startpinid="L298P-245-OUT1" endpinid="DcMotor-264-lPin" pointList="616,416,560,416,560,340,460,340" />
+
+<item itemtype="Connector" uid="connector-431" startpinid="DcMotor-264-rPin" endpinid="L298P-245-OUT2" pointList="460,420,460,424,616,424" />
+
+<item itemtype="Connector" uid="connector-432" startpinid="L298P-245-OUT3" endpinid="DcMotor-265-lPin" pointList="616,432,460,432,460,440" />
+
+<item itemtype="Connector" uid="connector-433" startpinid="DcMotor-265-rPin" endpinid="L298P-245-OUT4" pointList="460,520,508,520,508,440,616,440" />
+
+<item itemtype="Connector" uid="connector-434" startpinid="Node-401-2" endpinid="Potentiometer-396-PinB" pointList="968,372,968,372" />
+
+<item itemtype="Connector" uid="connector-435" startpinid="Node-401-1" endpinid="Node-405-0" pointList="968,372,968,388" />
+
+<item itemtype="Connector" uid="connector-436" startpinid="Potentiometer-396-PinM" endpinid="Node-401-0" pointList="952,356,952,372,968,372" />
+
+<item itemtype="Connector" uid="connector-437" startpinid="Uno-234-A0" endpinid="Node-411-0" pointList="896,380,896,388,928,388" />
+
+<item itemtype="Connector" uid="connector-438" startpinid="Node-405-2" endpinid="Resistor-395-lPin" pointList="968,388,968,408" />
+
+<item itemtype="Connector" uid="connector-439" startpinid="Uno-234-GND1" endpinid="Node-414-0" pointList="896,412,944,412,944,440,968,440" />
+
+<item itemtype="Connector" uid="connector-440" startpinid="Uno-234-5V0" endpinid="Potentiometer-396-PinA" pointList="896,420,932,420,932,452,1020,452,1020,340,968,340" />
+
+<item itemtype="Connector" uid="connector-441" startpinid="Voltimeter-409-lPin" endpinid="Node-411-1" pointList="1044,324,928,324,928,388" />
+
+<item itemtype="Connector" uid="connector-442" startpinid="Node-411-2" endpinid="Node-405-1" pointList="928,388,968,388" />
+
+<item itemtype="Connector" uid="connector-443" startpinid="Voltimeter-409-rPin" endpinid="Node-414-1" pointList="1060,324,1060,440,968,440" />
+
+<item itemtype="Connector" uid="connector-444" startpinid="Node-414-2" endpinid="Resistor-395-rPin" pointList="968,440,968,440" />
+
+</circuit>
